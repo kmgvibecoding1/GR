@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRD Greenleafstore.kz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F7F1; --text:#1D2620; --green:#245A3B; --soft:#E3EBDD; --honey:#8E6114;
+  --card:#FFFFFF; --muted:#5B685F; --line:#D5DDCF; --honey-soft:#F6ECD6; --on-green:#fff;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#111612; --text:#E7ECE5; --green:#5DA676; --soft:#1E2A22; --honey:#D8AC5B;
+    --card:#171E19; --muted:#9AA79D; --line:#2A3730; --honey-soft:#2B2414; --on-green:#0E1510;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111612; --text:#E7ECE5; --green:#5DA676; --soft:#1E2A22; --honey:#D8AC5B;
+  --card:#171E19; --muted:#9AA79D; --line:#2A3730; --honey-soft:#2B2414; --on-green:#0E1510;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Onest,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--green)}
+:focus-visible{outline:3px solid var(--honey);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;height:56px}
+.brand{font-weight:700;color:var(--green);white-space:nowrap}
+.nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+.nav::-webkit-scrollbar{display:none}
+.nav a{padding:6px 10px;border-radius:999px;text-decoration:none;color:var(--muted);font-size:14px;white-space:nowrap}
+.nav a:hover{background:var(--soft);color:var(--text)}
+.theme{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:999px;width:36px;height:36px;cursor:pointer;font-size:16px}
+
+/* hero */
+.hero{padding:48px 0 32px}
+.eyebrow{display:inline-block;background:var(--soft);color:var(--green);font-weight:600;font-size:13px;padding:4px 12px;border-radius:999px}
+h1{font-size:clamp(30px,6vw,52px);line-height:1.1;margin:16px 0 12px;letter-spacing:-.02em}
+.lead{font-size:18px;color:var(--muted);max-width:680px;margin:0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:28px}
+.meta div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px}
+.meta small{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.meta b{font-weight:600}
+
+/* sections */
+section{padding:36px 0;border-top:1px solid var(--line)}
+h2{font-size:28px;margin:0 0 6px;letter-spacing:-.01em}
+h2 .n{color:var(--honey);margin-right:8px}
+h3{font-size:18px;margin:28px 0 10px}
+p{margin:8px 0}
+.sub{color:var(--muted);margin:0 0 20px}
+.grid{display:grid;gap:14px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.card h4{margin:0 0 6px;font-size:17px}
+.card p{color:var(--muted);margin:4px 0;font-size:15px}
+.card.honey{background:var(--honey-soft);border-color:color-mix(in srgb,var(--honey) 40%,transparent)}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;background:var(--soft);color:var(--green)}
+.tag.h{background:var(--honey-soft);color:var(--honey)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;counter-reset:s}
+.step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;counter-increment:s}
+.step::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--green);color:var(--on-green);font-weight:700;margin-bottom:10px}
+.step b{display:block}
+.step span{color:var(--muted);font-size:15px}
+
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{padding:10px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--soft);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600}
+
+/* price compare */
+.price{font-size:26px;font-weight:700}
+.price s{font-size:15px;font-weight:400;color:var(--muted);margin-left:8px}
+.price.p{color:var(--honey)}
+
+/* order mock */
+pre{margin:0;background:#0F1A13;color:#DCE8DE;border-radius:14px;padding:18px 20px;overflow-x:auto;font:14px/1.7 ui-monospace,Consolas,monospace}
+pre .c{color:#8FA595}
+.wa{display:flex;gap:10px;align-items:center;margin-bottom:10px;font-weight:600}
+.wa i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#25D366;color:#fff;font-style:normal}
+
+/* swatches */
+.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.sw div{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+.sw .chip{height:64px;display:flex;align-items:flex-end;padding:8px 12px;font-size:12px;font-weight:600}
+.sw .chip.l{background:var(--c1)}
+.sw .two{display:grid;grid-template-columns:1fr 1fr}
+.sw .two span{height:56px;display:block}
+.sw p{margin:0;padding:10px 12px;font-size:13px}
+.sw p b{display:block}
+.sw p small{color:var(--muted)}
+
+/* status */
+.st{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:2px 10px;border-radius:999px}
+.st.ok{background:var(--soft);color:var(--green)}
+.st.wait{background:var(--honey-soft);color:var(--honey)}
+.progress{height:10px;border-radius:999px;background:var(--soft);overflow:hidden;margin:10px 0 4px}
+.progress i{display:block;height:100%;width:56%;background:var(--green);border-radius:999px}
+
+.risk{border-left:4px solid var(--honey);background:var(--card);border-radius:0 14px 14px 0;padding:14px 18px;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.risk b{display:block;margin-bottom:2px}
+.risk p{margin:0;color:var(--muted);font-size:15px}
+
+ul.chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+ul.chips li{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px}
+ul.check{list-style:none;padding:0;margin:0}
+ul.check li{padding:10px 0 10px 34px;position:relative;border-bottom:1px solid var(--line)}
+ul.check li:last-child{border:0}
+ul.check li::before{content:"";position:absolute;left:4px;top:14px;width:16px;height:16px;border:2px solid var(--green);border-radius:5px}
+footer{padding:32px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+@media (max-width:560px){.brand{display:none}h2{font-size:24px}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <span class="brand">🌿 PRD</span>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#goal">Цель</a>
+      <a href="#roles">Роли</a>
+      <a href="#func">Функции</a>
+      <a href="#order">Заказ</a>
+      <a href="#admin">Админка</a>
+      <a href="#nfr">Требования</a>
+      <a href="#design">Дизайн</a>
+      <a href="#status">Статус</a>
+      <a href="#risks">Риски</a>
+      <a href="#ready">Готовность</a>
+    </nav>
+    <button class="theme" id="theme" aria-label="Переключить тему">◐</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+  <span class="eyebrow">Версия 1.0 · 2 октября 2026</span>
+  <h1>Greenleafstore.kz</h1>
+  <p class="lead">Сайт заказов продукции Greenleaf у официального партнёра. Одностраничный каталог с оформлением заказа в WhatsApp.</p>
+  <div class="meta">
+    <div><small>Тип</small><b>Сайт-каталог с заказом</b></div>
+    <div><small>Владелец</small><b>Партнёр Greenleaf (KZ)</b></div>
+    <div><small>Контакт</small><b>8 702 118 10 15</b><br><small style="text-transform:none">WhatsApp, Kaspi, Halyk</small></div>
+    <div><small>Статус</small><b>Каталог ожидает заполнения</b></div>
+  </div>
+</div>
+
+<section id="goal">
+  <h2><span class="n">1</span>Цель продукта</h2>
+  <p class="sub">Принимать заказы без ручной переписки о ценах и составе заказа.</p>
+  <div class="steps">
+    <div class="step"><b>Собрать корзину</b><span>Покупатель сам выбирает товары и видит итоговую сумму</span></div>
+    <div class="step"><b>Отправить заказ</b><span>Готовое сообщение с номером, суммой и контактами уходит в WhatsApp</span></div>
+    <div class="step"><b>Оплатить переводом</b><span>Kaspi или Halyk по номеру телефона</span></div>
+  </div>
+  <h3>Три задачи партнёра</h3>
+  <div class="grid g3">
+    <div class="card"><h4>Каталог в одном месте</h4><p>Актуальные товары и цены двух уровней: для покупателя и для партнёров.</p></div>
+    <div class="card"><h4>Структурированный заказ</h4><p>Сообщение с номером, суммой и контактами вместо переписки.</p></div>
+    <div class="card"><h4>Управление у владельца</h4><p>Каталог меняет только администратор.</p></div>
+  </div>
+</section>
+
+<section id="roles">
+  <h2><span class="n">2</span>Пользователи и роли</h2>
+  <p class="sub">Три роли с разным уровнем доступа.</p>
+  <div class="grid g3">
+    <div class="card"><span class="tag">Открытый</span><h4 style="margin-top:10px">Покупатель</h4><p>Любой посетитель. Просматривает каталог, ищет товары, собирает корзину, отправляет заказ, видит инструкцию по оплате. Без регистрации.</p></div>
+    <div class="card honey"><span class="tag h">Ввод ID</span><h4 style="margin-top:10px">Партнёр</h4><p>Всё, что покупатель, плюс партнёрские цены после ввода ID Greenleaf.</p></div>
+    <div class="card"><span class="tag">Только владелец</span><h4 style="margin-top:10px">Администратор</h4><p>Товары, цены, логотип, реквизиты, публикация изменений. Вход через аккаунт Claude.</p></div>
+  </div>
+</section>
+
+<section id="func">
+  <h2><span class="n">3</span>Функциональные требования</h2>
+
+  <h3>3.1 Шапка и главная</h3>
+  <p>Логотип и название магазина, подпись «Заказ у официального партнёра», кнопка WhatsApp. Под шапкой вводный блок «Закажите продукцию Greenleaf» с процессом в три шага. Логотип (PNG, JPG, SVG, WebP) загружает администратор, до загрузки показывается текстовое название.</p>
+
+  <h3>3.2 Каталог</h3>
+  <div class="grid g2">
+    <div class="card"><h4>Список в формате прайс-листа</h4><p>Группировка по категориям. Фото (или заглушка с первой буквой), название, артикул, объём, цена, кнопка «В корзину», которая после добавления становится счётчиком.</p></div>
+    <div class="card"><h4>Закреплённая панель</h4><p>Поиск по названию, артикулу и описанию, фильтры по категориям, кнопка «Я партнёр». Видна при прокрутке.</p></div>
+  </div>
+  <p style="margin-top:12px"><b>Пустые состояния:</b> пустой каталог показывает покупателю ссылку на WhatsApp, администратору кнопку «Добавить товары». Если поиск ничего не нашёл, выводится подсказка проверить написание или сменить категорию.</p>
+
+  <h3>3.3 Цены покупателя и партнёра</h3>
+  <div class="grid g2">
+    <div class="card">
+      <span class="tag">Покупатель</span>
+      <div class="price" style="margin-top:8px">4 500 ₸</div>
+      <p>Цена по умолчанию. Проверка не нужна, отметки в заказе нет.</p>
+    </div>
+    <div class="card honey">
+      <span class="tag h">Партнёр</span>
+      <div class="price p" style="margin-top:8px">3 200 ₸<s>4 500 ₸</s></div>
+      <p>Включается кнопкой «Я партнёр» и вводом ID (минимум 4 цифры). В заказе пометка «партнёрские цены» и ID. Администратор сверяет ID перед подтверждением.</p>
+    </div>
+  </div>
+  <p>Если партнёрской цены у товара нет, партнёр видит цену покупателя. Режим выключается кнопкой «Вернуть цены для покупателя» и сохраняется в сессии браузера.</p>
+
+  <h3>3.4 Корзина и форма заказа</h3>
+  <p>Закреплённая кнопка корзины внизу экрана показывает количество и сумму. Корзина открывается боковой панелью: можно менять количество, удалять позиции, видеть итог.</p>
+  <div class="tw"><table>
+    <tr><th>Поле</th><th>Обязательно</th><th>Проверка</th></tr>
+    <tr><td>Имя и фамилия</td><td>Да</td><td>Не короче 2 символов</td></tr>
+    <tr><td>Телефон</td><td>Да</td><td>Не меньше 10 цифр</td></tr>
+    <tr><td>Получение</td><td>Да</td><td>Самовывоз, доставка по городу или отправка в другой город</td></tr>
+    <tr><td>Город</td><td>Нет</td><td>—</td></tr>
+    <tr><td>Адрес доставки</td><td>При доставке</td><td>Скрыт при самовывозе</td></tr>
+    <tr><td>Комментарий</td><td>Нет</td><td>—</td></tr>
+  </table></div>
+  <p>Ошибки выводятся под полем с объяснением. Корзина и форма сохраняются в сессии браузера.</p>
+</section>
+
+<section id="order">
+  <h2><span class="n">3.5</span>Отправка заказа в WhatsApp</h2>
+  <p class="sub">Номер заказа в формате <code>GL-ГГММДД-NNNN</code>. Кнопка «Отправить заказ в WhatsApp» открывает чат с уже заполненным сообщением.</p>
+  <div class="wa"><i>✓</i> Сообщение на номер 77021181015</div>
+<pre>Здравствуйте! Новый заказ <b>GL-261002-2372</b>
+
+Имя: Иван
+Телефон: 87011234567
+Партнёр, ID: 123456            <span class="c">(только для партнёров)</span>
+Получение: Доставка по городу, Алматы, ул. Абая 10
+
+1. Шампунь (арт. 08012) — 2 шт. × 4 500 ₸ = 9 000 ₸
+
+Итого: 9 000 ₸ (партнёрские цены)
+Комментарий: ...
+Оплата: перевод Kaspi или Halyk на 8 702 118 10 15</pre>
+  <p>Покупателю остаётся нажать «Отправить». Если WhatsApp не открылся, на экране указаны номер для связи и номер заказа.</p>
+
+  <h3>3.6 Оплата</h3>
+  <div class="steps">
+    <div class="step"><b>Открыть банк</b><span>Приложение Kaspi или Halyk</span></div>
+    <div class="step"><b>Перевод по номеру</b><span>8 702 118 10 15, кнопка «Скопировать номер»</span></div>
+    <div class="step"><b>Сумма и комментарий</b><span>Указать сумму и номер заказа</span></div>
+    <div class="step"><b>Отправить чек</b><span>В чат WhatsApp</span></div>
+  </div>
+  <p style="margin-top:14px">Клиенты Jusan, Freedom, BCC, ForteBank и других банков платят межбанковским переводом по номеру телефона на Kaspi или Halyk. Онлайн-эквайринг в первую версию не входит.</p>
+</section>
+
+<section id="admin">
+  <h2><span class="n">3.7</span>Панель администратора</h2>
+  <p class="sub">Кнопка «Управление» видна только владельцу. Три раздела.</p>
+  <div class="grid g3">
+    <div class="card"><h4>Товары</h4><p>Добавление, правка, удаление, очистка каталога. Поля: название, артикул, категория, обе цены, описание, фото (автоуменьшение до 400 px).</p></div>
+    <div class="card"><h4>Загрузить прайс</h4><p>Массовая загрузка из Excel или текста. Перед загрузкой показывается число распознанных товаров и строки с ошибками. Можно добавить или заменить каталог.</p></div>
+    <div class="card"><h4>Логотип и оплата</h4><p>Логотип, название и подпись, телефон, список банков, имя получателя, текст внизу страницы.</p></div>
+  </div>
+  <h3>Формат строки прайса</h3>
+<pre><span class="c">Артикул; Название; Категория; Цена покупателя; Цена партнёра; Описание</span>
+08012; Шампунь для волос 500 мл; Уход за волосами; 4500; 3200; 500 мл</pre>
+  <p>Разделитель: точка с запятой или табуляция. Строка заголовков пропускается автоматически.</p>
+  <div class="card honey" style="margin-top:14px"><b>Публикация.</b> Изменения сначала видит только администратор. Вверху появляется полоса «Есть изменения, которые ещё не видят покупатели» с кнопкой «Опубликовать изменения». Несохранённые правки хранятся в сессии браузера.</div>
+</section>
+
+<section id="nfr">
+  <h2><span class="n">4</span>Нефункциональные требования</h2>
+  <div class="tw"><table>
+    <tr><th>Область</th><th>Требование</th></tr>
+    <tr><td>Адаптивность</td><td>Телефоны от 360 px, планшеты, компьютеры, учёт выреза экрана iPhone</td></tr>
+    <tr><td>Тема</td><td>Автоматическая светлая и тёмная по настройкам устройства</td></tr>
+    <tr><td>Доступность</td><td>Видимый фокус, подписи у полей, закрытие окон по Esc, учёт «уменьшить движение»</td></tr>
+    <tr><td>Язык</td><td>Русский интерфейс, цены в тенге с разделителями разрядов</td></tr>
+    <tr><td>Производительность</td><td>Одна HTML-страница без внешних запросов, кроме шрифта Onest; до 16 МБ вместе с фото</td></tr>
+    <tr><td>Безопасность</td><td>Каталог меняет только владелец; данные карт, пароли и документы не хранятся</td></tr>
+    <tr><td>Хранение данных</td><td>Заказы на сайте не хранятся, вся история в WhatsApp владельца</td></tr>
+  </table></div>
+</section>
+
+<section id="design">
+  <h2><span class="n">5</span>Дизайн</h2>
+  <p class="sub">Формат прайс-листа: строки товаров с крупными ценами вместо однотипных карточек. Палитра природная и спокойная. Шрифт Onest с поддержкой кириллицы.</p>
+  <div class="sw">
+    <div><div class="two"><span style="background:#F5F7F1"></span><span style="background:#111612"></span></div><p><b>Фон</b><small>#F5F7F1 · #111612</small></p></div>
+    <div><div class="two"><span style="background:#1D2620"></span><span style="background:#E7ECE5"></span></div><p><b>Текст</b><small>#1D2620 · #E7ECE5</small></p></div>
+    <div><div class="two"><span style="background:#245A3B"></span><span style="background:#5DA676"></span></div><p><b>Лесной зелёный</b><small>Кнопки, корзина · #245A3B · #5DA676</small></p></div>
+    <div><div class="two"><span style="background:#E3EBDD"></span><span style="background:#1E2A22"></span></div><p><b>Мягкий зелёный</b><small>Подложки · #E3EBDD · #1E2A22</small></p></div>
+    <div><div class="two"><span style="background:#8E6114"></span><span style="background:#D8AC5B"></span></div><p><b>Медовый</b><small>Партнёрские цены · #8E6114 · #D8AC5B</small></p></div>
+  </div>
+  <p style="font-size:13px;color:var(--muted);margin-top:8px">В каждой паре слева светлая тема, справа тёмная.</p>
+</section>
+
+<section id="status">
+  <h2><span class="n">6</span>Текущий статус</h2>
+  <div class="progress" role="img" aria-label="Готово 5 из 9 задач"><i></i></div>
+  <p class="sub">Готово 5 из 9 задач.</p>
+  <div class="tw"><table>
+    <tr><th>Задача</th><th>Статус</th></tr>
+    <tr><td>Вёрстка, каталог, корзина, оформление заказа</td><td><span class="st ok">✓ Готово</span></td></tr>
+    <tr><td>Отправка заказа в WhatsApp</td><td><span class="st ok">✓ Готово</span></td></tr>
+    <tr><td>Инструкция по оплате Kaspi и Halyk</td><td><span class="st ok">✓ Готово</span></td></tr>
+    <tr><td>Партнёрские цены по ID</td><td><span class="st ok">✓ Готово</span></td></tr>
+    <tr><td>Панель администратора и публикация</td><td><span class="st ok">✓ Готово</span></td></tr>
+    <tr><td>Наполнение каталога</td><td><span class="st wait">⏳ Нужен прайс владельца или загрузка с greenleaf.kz</span></td></tr>
+    <tr><td>Логотип</td><td><span class="st wait">⏳ Нужен официальный файл от Greenleaf</span></td></tr>
+    <tr><td>Имя получателя перевода</td><td><span class="st wait">⏳ Указать в настройках</span></td></tr>
+    <tr><td>Название в шапке «Greenleafstore.kz»</td><td><span class="st wait">⏳ «Управление → Логотип и оплата»</span></td></tr>
+  </table></div>
+</section>
+
+<section id="risks">
+  <h2><span class="n">7</span>Ограничения и риски</h2>
+  <div class="grid">
+    <div class="risk"><b>Партнёрские цены видны в коде страницы</b><p>Технически грамотный посетитель найдёт их без ID. Поэтому администратор обязательно проверяет ID перед подтверждением. Для полного скрытия нужна серверная часть с авторизацией.</p></div>
+    <div class="risk"><b>ID партнёра не проверяется автоматически</b><p>Нет доступа к базе Greenleaf, проверка ручная.</p></div>
+    <div class="risk"><b>Оплата не подтверждается автоматически</b><p>Администратор сверяет чек в WhatsApp с суммой и номером заказа.</p></div>
+    <div class="risk"><b>Товарный знак</b><p>Логотип Greenleaf только в виде официального файла от компании, в рамках партнёрского соглашения.</p></div>
+    <div class="risk"><b>Домен</b><p>Сейчас сайт по ссылке claude.ai. Для Greenleafstore.kz нужны домен .kz и хостинг. Панель администратора работает только внутри Claude, на внешнем хостинге каталог обновляется заменой файла.</p></div>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="n">8</span>Развитие продукта</h2>
+  <p class="sub">Не входит в первую версию.</p>
+  <ul class="chips">
+    <li>Онлайн-оплата: Kaspi Pay, Halyk ePay, CloudPayments</li>
+    <li>История заказов и статусы</li>
+    <li>Кабинет партнёра с проверкой ID</li>
+    <li>Kaspi QR</li>
+    <li>Казахская версия</li>
+    <li>Акции и наборы товаров</li>
+  </ul>
+</section>
+
+<section id="ready">
+  <h2><span class="n">9</span>Критерии готовности</h2>
+  <p class="sub">Сайт готов к запуску, когда выполнено всё ниже.</p>
+  <ul class="check">
+    <li>Каталог заполнен актуальными товарами и ценами обоих уровней</li>
+    <li>Загружен официальный логотип</li>
+    <li>Указано имя получателя перевода</li>
+    <li>Тестовый заказ доходит в WhatsApp с правильной суммой</li>
+    <li>Тестовый перевод с номером заказа в комментарии проходит на Kaspi и Halyk</li>
+  </ul>
+</section>
+
+</main>
+
+<footer><div class="wrap">PRD Greenleafstore.kz · версия 1.0 · 2 октября 2026</div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  try{var t=localStorage.getItem('theme');if(t)root.setAttribute('data-theme',t)}catch(e){}
+  btn.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme:dark)').matches);
+    var next=dark?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next)}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
